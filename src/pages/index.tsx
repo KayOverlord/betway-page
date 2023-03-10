@@ -4,10 +4,14 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Bar from "./components/Bar";
 import BottomBar from "./components/BottomBar";
+import LoginModal from "./components/LoginModal";
+import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+const Home = () => {
+  // const [isOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
     <>
       <Head>
@@ -17,9 +21,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Bar />
+        <Bar onLogin={(v) => setModalIsOpen(v)} />
+        <LoginModal
+          open={modalIsOpen}
+          setOpen={(v: boolean | ((prevState: boolean) => boolean)) =>
+            setModalIsOpen(v)
+          }
+        />
         <BottomBar />
       </main>
     </>
   );
-}
+};
+export default Home;

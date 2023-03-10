@@ -8,9 +8,9 @@ import Image from "next/image";
 import { useMemo } from "react";
 import LightTabs from "../Tabs";
 
-const Bar = () => {
+const Bar = (props: { onLogin: (arg0: boolean) => void }) => {
   const theme = useTheme();
-  const { setCurrentTheme, currentTheme } = useMainContext();
+  const { currentTheme } = useMainContext();
   useMemo(() => (theme.palette.secondary.main = currentTheme), [currentTheme]);
   return (
     <div>
@@ -53,6 +53,7 @@ const Bar = () => {
             </Button>
             <Button
               variant="outlined"
+              onClick={() => props.onLogin(true)}
               sx={{
                 my: 1,
                 mx: 1,
