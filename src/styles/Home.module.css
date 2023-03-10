@@ -3,8 +3,11 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
+  background-image: url("https://cdn.betwaygroup.com/medusa-production/1001/the-hunch-mobile.webp");
+  background-repeat: no-repeat;
+ 
+  background-position: center;
 }
 
 .description {
@@ -175,6 +178,10 @@
 
 /* Mobile */
 @media (max-width: 700px) {
+ 
+  .main{
+    background-size: cover;
+  }
   .content {
     padding: 4rem;
   }
@@ -252,6 +259,9 @@
 
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
+  .main{
+    background-size: cover;
+  }
   .grid {
     grid-template-columns: repeat(2, 50%);
   }
